@@ -1,0 +1,31 @@
+-- Add noises to the audio table
+function noises(audio)
+  local names = {
+    "beep",
+    "blast",
+    "boom",
+    "correct",
+    "gameover",
+    "hyperjump",
+    "jump",
+    "knock",
+    "lose",
+    "pew",
+    "ping",
+    "punch",
+    "rawr",
+    "shot",
+    "sword",
+    "toggle",
+    "win",
+    "wow",
+    "wrong"
+  }
+  for _,name in pairs(names) do
+    local filename = "assets/sounds/"..name..".wav"
+    local source = love.audio.newSource(filename, "static")
+    audio[name] = function()
+      love.audio.play(source)
+    end
+  end
+end
